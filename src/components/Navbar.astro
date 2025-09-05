@@ -1,0 +1,38 @@
+---
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import "../styles/global.css";
+
+
+interface Props {
+  user: string;
+}
+---
+
+<nav class='sticky top-0 w-[98%] bg-black bg-gradient-to-r from-black- to-red-900 text-white rounded-xl px-6 py-4 mx-auto my-2'>
+        <div class='flex justify-between items-center max-w-6xl mx-auto px-6 rounded-2xl object-center'>
+
+          <ul class="flex">
+
+            <li class="float-left block m-2">
+                <a href="/" class=''>
+                    {/* <img src="eyewallwx-avatar.webp" alt=""></img> */}
+                    OSUTR
+                </a>
+            </li>
+
+            <li class='float-left block m-2'>
+                <a href='/' class='hover:text-red-600 transition-colors text-white'>
+                    Home
+                </a>
+            </li>
+            
+            <li class='float-left block m-2'>
+              <a href='/' class='hover:text-red-600 transition-colors text-white'>
+                About
+              </a>
+            </li>
+          </ul>
+
+      </div>
+</nav>
