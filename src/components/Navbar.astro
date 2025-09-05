@@ -3,36 +3,41 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import "../styles/global.css";
 
-
 interface Props {
   user: string;
 }
 ---
 
-<nav class='sticky top-0 w-[98%] bg-black bg-gradient-to-r from-black- to-red-900 text-white rounded-xl px-6 py-4 mx-auto my-2'>
-        <div class='flex justify-between items-center max-w-6xl mx-auto px-6 rounded-2xl object-center'>
+<nav class='sticky top-0 w-[99%] bg-gradient-to-tr from-black to-red-900 text-white rounded-xl px-6 py-4 mx-auto my-2'>
+  <div class='flex justify-between items-center max-w-6xl mx-auto -px-12 rounded-2xl'>
 
-          <ul class="flex">
+    {/* Left side - Logo and Navigation */}
+    <ul class="flex items-center space-x-8">
+      <li>
+        <a href="/" class='text-xl font-bold text-white hover:text-red-400 transition-colors'>
+          OSUTR
+        </a>
+      </li>
 
-            <li class="float-left block m-2">
-                <a href="/" class=''>
-                    {/* <img src="eyewallwx-avatar.webp" alt=""></img> */}
-                    OSUTR
-                </a>
-            </li>
+      <li>
+        <a href='/' class='text-sm font-medium hover:text-red-600 transition-colors text-white'>
+          Home
+        </a>
+      </li>
+      
+      <li>
+        <a href='/about' class='text-sm font-medium hover:text-red-600 transition-colors text-white'>
+          About
+        </a>
+      </li>
+    </ul>
 
-            <li class='float-left block m-2'>
-                <a href='/' class='hover:text-red-600 transition-colors text-white'>
-                    Home
-                </a>
-            </li>
-            
-            <li class='float-left block m-2'>
-              <a href='/' class='hover:text-red-600 transition-colors text-white'>
-                About
-              </a>
-            </li>
-          </ul>
+    {/* Right side - Login Button */}
+    <div>
+      <a href='/login' class='text-sm font-medium hover:text-red-600 transition-colors text-white uppercase tracking-wide'>
+        LOGIN
+      </a>
+    </div>
 
-      </div>
+  </div>
 </nav>
