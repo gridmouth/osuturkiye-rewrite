@@ -1,6 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+Astro.cookies.set('osuturkiye-token', "TESTVALUE");
+
 ---
-<Layout>
-    {/*Login Page*/}
-</Layout>
+
+<script>
+    window.onload = () => {
+        window.location.href = '/';
+    };
+</script>

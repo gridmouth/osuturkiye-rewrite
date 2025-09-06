@@ -26,19 +26,27 @@ const newsItems: NewsItem[] = [
     avatar: "LFG.png",
     date: "2024-01-14"
   },
+    {
+    id: 3,
+    title: "Kuslar",
+    description: "Kuslar da oyle. Kuslari da cok seviyorum. Bir kus sahibi olmak harika bir his.",
+    author: "Ruya",
+    avatar: "LFG.png",
+    date: "2024-01-14"
+  },
 ];
 ---
 
-<section class="bg-gray-800 rounded-xl p-6 mb-6">
+<section class=" bg-[#202020] rounded-xl p-6 mb-6">
   <!-- Section Header -->
   <div class="mb-6">
-    <h2 class="text-white text-xl font-bold uppercase tracking-wide">NEWS</h2>
+    <h2 class="text-white text-xl font-bold tracking-wide">Haberler</h2>
   </div>
 
 
   <div class="space-y-4">
     {newsItems.map((item) => (
-      <article class="flex gap-4 p-4 bg-gray-700 rounded-lg hover:bg-gray-650 transition-colors">
+      <article class="flex gap-4 p-4 bg-[#303030] rounded-lg hover:bg-red-800 transition-colors">
         <!-- Avatar -->
         <div class="flex-shrink-0">
           <img 

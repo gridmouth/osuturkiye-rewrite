@@ -1,8 +1,12 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import News from '../components/News.astro'
 import React from '@astrojs/react';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Events from '../components/Events.astro';
+import Categories from '../components/Categories.astro';
+import RecentPlays from '../components/RecentPlays.astro';
+
+import '../styles/index.css';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -10,22 +14,27 @@ import React from '@astrojs/react';
 
 
 <Layout>
-    {/*Index Page*/}
-  <div class="container mx-auto px-4 py-8">
-    <div class="flex gap-6">
-      <!-- News Section (60% width) -->
-      <div class="w-3/5">
-        <News />
-      </div>
-      
-      <!-- Right sidebar (40% width) -->
-      <div class="w-2/5">
-        {/* Will have the event component later!!!!! */}
-        <div class="bg-gray-800 rounded-xl p-6">
-          <h2 class="text-white text-xl font-bold mb-4">EVENTS</h2>
-          <!-- Events content -->
-        </div>
-      </div>
+  <Navbar user=''/>
+
+  <div class="grid grid-cols-4 grid-rows-2 gap-x-4 gap-y-4 w-[97%] mx-auto">
+    
+    <!-- Column 1 - Span both rows --> 
+    <div class="col-start-1 col-end-4 row-start-1 row-end-3">
+      <Events />
     </div>
+    
+    <!-- Column 2 --> 
+    <!-- Row 1 -->
+    <div class="col-start-4 col-end-5 row-start-1 row-end-2">
+      <Categories />
+    </div>
+
+    <!-- Row 2 -->
+    <div class="col-start-4 col-end-5 row-start-2 row-end-3">
+      <RecentPlays />
+    </div>
+      
+
   </div>
+  
 </Layout>
