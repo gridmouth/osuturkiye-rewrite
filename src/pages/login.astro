@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import * as osu from 'osu-api-v2-js';
+import {stringify} from 'flatted';
 
-Astro.cookies.set('osuturkiye-token', "TESTVALUE");
+const token = Astro.url.searchParams.get('code');
+const api = await osu.API.createAsync(parseInt(import.meta.env.CLIENT_ID), import.meta.env.CLIENT_SECRET, {code: token || "", redirect_uri: import.meta.env.REDIRECT_URI});
+Astro.cookies.set('osuturkiye-api', stringify(api));
 
+return Astro.redirect('/');
 ---
-
-<script>
-    window.onload = () => {
-        window.location.href = '/';
-    };
-</script>

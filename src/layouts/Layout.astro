@@ -1,4 +1,6 @@
 ---
+import Navbar from "../components/Navbar.astro";
+
 
 ---
 
@@ -12,9 +14,12 @@
 		<title>osu!Türkiye</title>
 	</head>
 	<body class="bg-[#101010] text-white">
-		<slot />
+		<Navbar/>
+		<main>
+			<slot />
+		</main>
 	</body>
-</html>
+</html> 
 
 <style>
 	html,

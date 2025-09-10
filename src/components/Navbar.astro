@@ -1,23 +1,22 @@
 ---
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import * as osu from 'osu-api-v2-js'
+import {parse} from 'flatted';
 
 import "../styles/global.css"
 
+let loginURI = '';
+let avatar_url = '';
+let username = '';
 
-interface Props {
-  user: string;
-}
-
-let href = '';
-
-if (!Astro.cookies.has('osuturkiye-token')) {
-  href = '/login';
-  href = osu.generateAuthorizationURL();
+if (!Astro.cookies.has('osuturkiye-api')) {  
+  loginURI = osu.generateAuthorizationURL(import.meta.env.CLIENT_ID, import.meta.env.REDIRECT_URI, [ "identify", "public" ]);
 } else {
-  href = '/profile';
+  const osu_api = new osu.API(parse(Astro.cookies.get('osuturkiye-api')?.value || ""));
+  const user = await osu_api.getResourceOwner();
+  avatar_url = user.avatar_url;
+  username = user.username;
+  loginURI = '/profile';
 }
 
 ---
@@ -39,7 +38,7 @@ if (!Astro.cookies.has('osuturkiye-token')) {
         </li>
         
         <li>
-          <a href={href} class='text-sm font-medium hover:text-red-600 transition-colors text-white'>
+          <a href={"/about"} class='text-sm font-medium hover:text-red-600 transition-colors text-white'>
             Hakkımızda
           </a>
         </li>
@@ -48,9 +47,15 @@ if (!Astro.cookies.has('osuturkiye-token')) {
 
     {/* Right side - Login Button */}
     <div>
-      <a href={href} class='text-sm font-medium hover:text-red-600 transition-colors text-white tracking-wide'>
+      {Astro.cookies.has('osuturkiye-api') ? (
+          <a href="/profile" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+            <img src={avatar_url} alt={username} class="w-8 h-8 rounded-full border-2 border-white/20 hover:border-red-400 transition-colors"/>
+          </a>
+      ) : (
+      <a href={loginURI} class='text-sm font-medium hover:text-red-600 transition-colors text-white tracking-wide'>
         Giriş Yap
       </a>
+      )}
     </div>
 
   </div>
