@@ -7,7 +7,7 @@ import swup from '@swup/astro';
 export default defineConfig({
   vite: {
       server: {
-        allowedHosts: [ 'mwvlhn-ip-109-233-92-75.tunnelmole.net' ],
+        allowedHosts: [ 'bzc4ue-ip-109-233-92-47.tunnelmole.net' ],
       },
       plugins: [tailwindcss()],
   },
